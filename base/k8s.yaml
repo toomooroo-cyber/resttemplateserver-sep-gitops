@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: resttemplateserver-sep
-          image: 210.90.24.172:8080/camit/yklee2002/resttemplateserver-sep:latest
+          image: 210.90.24.172:8080/camit/toomooroo/resttemplateserver-sep:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
