@@ -1,3 +1,5 @@
+# Document from k8s.yaml
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,10 +15,11 @@ spec:
     metadata:
       labels:
         app: resttemplateserver-sep
-# add the spec section to the deployment.yaml file from the kustomization.yaml file connenct with haror-secret
+### Add the spec section to the deployment.yaml file from the kustomization.yaml file connenct with haror-secret
     spec:
       imagePullSecrets:
         - name: harbor-secret
+----
       containers:
         - name: resttemplateserver-sep
           image: 210.90.24.172:8080/camit/toomooroo/resttemplateserver-sep:latest
@@ -44,4 +47,10 @@ spec:
     - port: 8080
       targetPort: 8080
       nodePort: 30105 
-# 
+
+## Run the command on power shell to create harbor secret
+
+kubectl create secret docker-registry harbor-secret   --docker-server=210.90.24.172:8080   --docker-username=yklee2002   --docker-password=Byby3845//    --docker-email=yklee2002@gmail.com   -n default
+
+on 
+kubectl port-forward svc/argocd-server -n argocd 8080:443
