@@ -13,7 +13,10 @@ spec:
     metadata:
       labels:
         app: resttemplateserver-sep
+# add the spec section to the deployment.yaml file from the kustomization.yaml file
     spec:
+      imagePullSecrets:
+        - name: harbor-secret
       containers:
         - name: resttemplateserver-sep
           image: 210.90.24.172:8080/camit/toomooroo/resttemplateserver-sep:latest
@@ -41,3 +44,4 @@ spec:
     - port: 8080
       targetPort: 8080
       nodePort: 30105 
+# 
